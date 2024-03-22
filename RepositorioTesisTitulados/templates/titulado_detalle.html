@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static "css/style_detalle.css" %}">
+
+<h1>Detalle del Estudiante</h1>
+
+<div class="cardD">
+    <div class="headD">
+        <div class="circleD circle"></div>
+        <div class="imgD">
+            <img src="{% static "image/yo.jpg" %}" alt="">
+        </div>
+    </div>
+    <div class="descriptionD">
+        <h3>{{ estudiante.nombre }} {{ estudiante.apellido }}</h3>
+        <h4>{{ estudiante.carrera }}</h4>
+        <div class="details">
+            <div class="column-01">
+                <p><strong>Ru:</strong> {{ estudiante.ru }}</p>
+                <p><strong>CI:</strong> {{ estudiante.ci }}</p>
+                <p><strong>Año Ingreso:</strong> {{ estudiante.anio_ingreso }}</p>
+            </div>
+            <div class="column-02">
+                <p><strong>Periodo Ingreso:</strong> {{ estudiante.periodo_ingreso }}</p>
+                <p><strong>Gestión:</strong> {{ estudiante.gestion }}</p>
+                <p><strong>Periodo Salida:</strong> {{ estudiante.periodo_salida }}</p>
+            </div>
+        </div>
+        <p><strong>Nota:</strong> {{ estudiante.nota }}</p>
+    </div>
+    <div class="contactD">
+        <form action="{% url 'titulados' %}">
+            <button type="submit">Volver</button>
+        </form>
+    </div>
+    
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<h1>hoja de tesis</h1>
+<br>
+<table class="card-table">
+    <thead>
+        <tr>
+            <th>titulo</th>
+            <th>postulante</th>
+            <th>modalidad</th>
+            <th>fecha</th>
+            <th>numero_acta</th>
+            <th>tribunales</th>
+            <th>tutor</th>
+            <th>tutor_externo</th>
+            <th>pdf_tesis</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tesis in tesis %}
+        <tr class="card-table">
+            <td>{{ tesis.titulo }}</td>
+            <td>{{ tesis.postulante }}</td>
+            <td>{{ tesis.modalidad }}</td>
+            <td>{{ tesis.fecha }}</td>
+            <td>{{ tesis.numero_acta }}</td>
+            <td>
+                {% for tribunal in tesis.tribunales.all %}
+                    <li> {{ tribunal.nombre }} {{ tribunal.apellido }}<br></li>
+                {% endfor %}
+            </td>
+            <td>{{ tesis.tutor }}</td>
+            <td>{{ tesis.tutor_externo }}</td>
+            <td>{{ tesis.pdf_tesis }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

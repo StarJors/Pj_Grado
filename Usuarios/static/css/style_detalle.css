@@ -1,0 +1,184 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Baloo 2', cursive;
+}
+
+/* Estilos de las tarjetas */
+.card, .cardD {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: .5s;
+    margin: 15px auto;
+}
+
+.card:hover, .cardD:hover {
+    box-shadow: 0 5px 15px #003366;
+    transform: translateY(-15px);
+}
+
+.card .head, .cardD .headD {
+    height: 125px;
+    width: 100%;
+    position: relative;
+}
+
+.card .head .circle, .cardD .headD .circleD {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 0%;
+    background: #003366;
+    bottom: 0;
+    clip-path: polygon(0% 5%, 100% 5%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.card .head .img, .cardD .headD .imgD {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    background: #fff;
+    padding: 5px;
+    border-radius: 50%;
+    bottom: -30%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.card .head .img img, .cardD .headD .imgD img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.card .description, .cardD .descriptionD {
+    padding: 20px;
+    text-align: center;
+}
+
+.card .description h3, .cardD .descriptionD h3 {
+    color: #05383a;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+.card .description h4, .cardD .descriptionD h4 {
+    color: #1c5a5c;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.card .description h5, .cardD .descriptionD h5 {
+    margin-top: 10px;
+    margin-left: 0px;
+    font-size: 15px;
+    color: #1c5a5c;
+}
+
+.card .contact, .cardD .contactD {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card .contact a, .cardD .contactD button {
+    text-decoration: none;
+    color: #fff;
+    background: #003366;
+    padding: 5px 20px;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+.card .contact a:hover, .cardD .contactD button:hover {
+    background: #0b6164;
+}
+
+/* Estilos de la lista de tarjetas */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Estilos del paginador */
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination {
+    font-family: Arial, sans-serif;
+}
+
+.step-links {
+    display: flex;
+    align-items: center;
+}
+
+.step-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border-radius: 5px;
+    background-color: #003366;
+}
+
+.step-links a:hover {
+    background-color: #0b6164;
+}
+
+.step-links .current {
+    margin: 0 10px;
+}
+
+.step-links a:disabled {
+    color: #003366;
+}
+
+/* Media queries para hacer los estilos responsivos */
+@media (max-width: 400px) {
+    .card, .cardD {
+        width: 100%;
+        max-width: 100%;
+        margin: 15px auto;
+    }
+
+    .card .description, .cardD .descriptionD {
+        padding: 10px;
+    }
+
+    .card .description h3, .cardD .descriptionD h3 {
+        font-size: 20px;
+    }
+
+    .card .description h4, .cardD .descriptionD h4 {
+        font-size: 16px;
+    }
+
+    .card .description h5, .cardD .descriptionD h5 {
+        font-size: 12px;
+    }
+}
+
+/* Media query para pantallas mayores a 400px */
+@media (min-width: 401px) {
+    .card, .cardD {
+        width: 100%; /* Puedes ajustar el ancho según tus necesidades */
+        max-width: 600px; /* Puedes ajustar el ancho máximo según tus necesidades */
+        margin: 15px auto;
+    }
+}
+
