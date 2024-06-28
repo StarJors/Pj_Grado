@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<header>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_tesis_detalle.css' %}">
+    <h2>Repositorio Detalle</h2>
+    <h6>Carrera De Ingenieria De Sistemas</h6>
+    <hr>
+</header>
+<body>
+    <div class="container">
+        <div class="card narrow-card">
+            <div class="row no-gutters">
+                <div class="col-md-3 col-lg-3 centered-img">
+                    <a href="{{ tesis.pdf_tesis.url }}" download>
+                        <img src="{% static 'image/pdf.jpg' %}" class="card-img imgD" alt="PDF">
+                        <p>Descargar PDF</p>
+                    </a>
+                </div>
+                <div class="col-md-9 col-lg-9 descriptionD">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th>Título</th>
+                                            <td>{{ tesis.titulo }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6 col-12">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th>Postulante</th>
+                                            <td>{{ tesis.postulante }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Modalidad</th>
+                                            <td>{{ tesis.modalidad }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <td>{{ tesis.fecha }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Número de Acta</th>
+                                            <td>{{ tesis.numero_acta }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-12">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th>Tribunales</th>
+                                            <td>
+                                                <ul>
+                                                    {% for tribunal in tesis.tribunales.all %}
+                                                        <li>{{ tribunal.nombre }} {{ tribunal.apellido }}</li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tutor</th>
+                                            <td>{{ tesis.tutor }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Tutor Externo</th>
+                                            <td>{{ tesis.tutor_externo }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contactD">
+                        <form action="{% url 'tesis' %}">
+                            <button type="submit" class="btn btn-primary">Volver</button>
+                        </form>
+                    </div>
+                </div>
+            </div>     
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

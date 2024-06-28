@@ -1,41 +1,46 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-
+<head>
 <link rel="stylesheet" type="text/css" href="{% static "css/style_detalle.css" %}">
-
-<h1>Detalle del Estudiante</h1>
-
-<div class="cardD">
-    <div class="headD">
-        <div class="circleD circle"></div>
-        <div class="imgD">
-            <img src="{% static "image/yo.jpg" %}" alt="">
-        </div>
-    </div>
-    <div class="descriptionD">
-        <h3>{{ estudiante.nombre }} {{ estudiante.apellido }}</h3>
-        <h4>{{ estudiante.carrera }}</h4>
-        <div class="details">
-            <div class="column-01">
-                <p><strong>Ru:</strong> {{ estudiante.ru }}</p>
-                <p><strong>CI:</strong> {{ estudiante.ci }}</p>
-                <p><strong>Año Ingreso:</strong> {{ estudiante.anio_ingreso }}</p>
-            </div>
-            <div class="column-02">
-                <p><strong>Periodo Ingreso:</strong> {{ estudiante.periodo_ingreso }}</p>
-                <p><strong>Gestión:</strong> {{ estudiante.gestion }}</p>
-                <p><strong>Periodo Salida:</strong> {{ estudiante.periodo_salida }}</p>
-            </div>
-        </div>
-        <p><strong>Nota:</strong> {{ estudiante.nota }}</p>
-    </div>
-    <div class="contactD">
-        <form action="{% url 'titulados' %}">
-            <button type="submit">Volver</button>
-        </form>
-    </div>
+</head>
+<body>
+    <h2>Repositorio Detalle</h2>
+    <h6>Carrera De Ingenieria De Sistemas</h6>
     
-</div>
+    <div class="container mt-5">
+        <div class="card narrow-card">
+            <div class="row no-gutters">
+                <div class="col-md-3 col-lg-3 centered-img">
+                <img src="{% static "image/yo.jpg" %}" class="card-img imgD" alt="Foto_De_Perfil">
+                </div>
+                <div class="col-md-7 col-lg-7 descriptionD">
+                    <div class="card-body">
+                        <h3>{{ estudiante.nombre }} {{ estudiante.apellido }}</h3>
+                        <h4>{{ estudiante.carrera }}</h4>
+                        <div class="details">
+                        <div class="column-01">
+                            <p><strong>Ru:</strong> {{ estudiante.ru }}</p>
+                            <p><strong>CI:</strong> {{ estudiante.ci }}</p>
+                            <p><strong>Año Ingreso:</strong> {{ estudiante.anio_ingreso }}</p>
+                        </div>
+                        <div class="column-02">
+                        <p><strong>Periodo Ingreso:</strong> {{ estudiante.periodo_ingreso }}</p>
+                        <p><strong>Gestión:</strong> {{ estudiante.gestion }}</p>
+                        <p><strong>Periodo Salida:</strong> {{ estudiante.periodo_salida }}</p>
+                        </div>
+                    </div>
+        <p><strong>Nota:</strong> {{ estudiante.nota }}</p>
+        <div class="contactD">
+            <form action="{% url 'titulados' %}">
+                <button type="submit">Volver</button>
+            </form>
+        </div>
+                    </div>     
+                </div>
+            </div>     
+        </div>
+    </div>
+</body>
 
 {% endblock %}

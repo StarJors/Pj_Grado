@@ -10,7 +10,7 @@ body {
     background-color: #e60000bb;
     color: #fff;
     text-align: center;
-    padding: 20px;
+    padding: 5px;
   }
   
   header h1 {
@@ -84,16 +84,14 @@ body {
   /* Estilos del footer */
 footer {
   background-color: #003366;
-  margin-top: 120px;
   color: #fff;
-  padding: 20px 0;
+  padding: 20px;
   text-align: center;
   font-weight: bold; 
 }
 
 .footer-content {
   max-width: 1200px;
-  margin: 0 auto;
   font-weight: bold; 
 }
   

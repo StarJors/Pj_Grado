@@ -33,6 +33,12 @@ urlpatterns = [
     path('pdfs/<str:pdf_tesis>/', r.pdf_view, name='pdf_view'),
     path('titulados/',r.titulados, name='titulados'),
     path('titulados/titulado_detalle/<int:pk>/', r.titulado_detalle, name='titulado_detalle'),
+    # TESIS
     path('tesis/',r.tesis, name='tesis'),
+    path('tesis/tesis_detalle/<int:pk>/', r.tesis_detalle, name='tesis_detalle'),
+    path('tesis/tesis_detalle_p/<int:pk>/', r.tesis_detalle_p, name='tesis_detalle_p'),
+
+
+
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

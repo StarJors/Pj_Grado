@@ -1,41 +1,54 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<header>
+    <link rel="stylesheet" type="text/css" href="{% static "css/style_tesis.css" %}">
+</header>
+<body>
+<div class="card-title" >
+<h2>Repositorio de Proyectos</h2>
+<h6>Carrera De Ingenieria De Sistemas</h6>
+</div>
+<hr>
 
-<h1>hoja de tesis</h1>
-<br>
-<table class="card-table">
-    <thead>
-        <tr>
-            <th>titulo</th>
-            <th>postulante</th>
-            <th>modalidad</th>
-            <th>fecha</th>
-            <th>numero_acta</th>
-            <th>tribunales</th>
-            <th>tutor</th>
-            <th>tutor_externo</th>
-            <th>pdf_tesis</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for tesis in tesis %}
-        <tr class="card-table">
-            <td>{{ tesis.titulo }}</td>
-            <td>{{ tesis.postulante }}</td>
-            <td>{{ tesis.modalidad }}</td>
-            <td>{{ tesis.fecha }}</td>
-            <td>{{ tesis.numero_acta }}</td>
-            <td>
-                {% for tribunal in tesis.tribunales.all %}
-                    <li> {{ tribunal.nombre }} {{ tribunal.apellido }}<br></li>
-                {% endfor %}
-            </td>
-            <td>{{ tesis.tutor }}</td>
-            <td>{{ tesis.tutor_externo }}</td>
-            <td>{{ tesis.pdf_tesis }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div>
+    <form class="d-flex" role="search" method="GET" action="{% url 'tesis' %}">
+        <input class="form-control me-2" type="text" name="q" placeholder="Buscar Por Titulo o  Autor o Fecha(AA-MM-DD)" value="{{ query|default_if_none:"" }}">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
+    </form>
+</div>
+<div class="card-container">
+    {% for tesis in tesis %}
+    <a href="{% url 'tesis_detalle_p' tesis.pk %}" class="card-link">
+        <div class="card">
+            <div class="description">
+                <h6>{{ tesis.titulo }}</h6>
+                <h6>{{ tesis.postulante }}</h6>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+<div class="pagination-container">
+    <div class="pagination">
+        <div class="step-links">
+            {% if tesis.has_previous %}
+                <button onclick="location.href='?{% if query %}q={{ query }}&{% endif %}page=1'">&laquo; Primera</button>
+                <button onclick="location.href='?{% if query %}q={{ query }}&{% endif %}page={{ tesis.previous_page_number }}'">Anterior</button>
+            {% endif %}
+            <span class="current">
+                Página {{ tesis.number }} de {{ tesis.paginator.num_pages }}.
+            </span>
+            {% if tesis.has_next %}
+                <button onclick="location.href='?{% if query %}q={{ query }}&{% endif %}page={{ tesis.next_page_number }}'">Siguiente</button>
+                <button onclick="location.href='?{% if query %}q={{ query }}&{% endif %}page={{ tesis.paginator.num_pages }}'">Última &raquo;</button>
+            {% endif %}
+        </div>
+    </div>
+</div>
+</body>
+</html>
 {% endblock %}

@@ -1,0 +1,76 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Baloo 2', cursive;
+}
+
+/* Estilos de la tabla */
+.card-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+.card-table thead tr {
+    background-color: #003366;
+    color: #fff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.card-table th, .card-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.card-table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.card-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.card-table tbody tr:last-of-type {
+    border-bottom: 2px solid #003366;
+}
+
+.card-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Media queries para hacer los estilos responsivos */
+@media (max-width: 400px) {
+    .card-table thead {
+        display: none;
+    }
+
+    .card-table, .card-table tbody, .card-table tr, .card-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .card-table tr {
+        margin-bottom: 15px;
+    }
+
+    .card-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .card-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}

@@ -26,7 +26,6 @@ footer {
   color: #fff;
   padding: 10px 0;
   font-weight: bold; 
-
 }
 
 .navbar a {
@@ -81,21 +80,22 @@ footer {
   background-color: #fff;
   color: #000;
   border-color: #fff;
-  font-weight: bold; /* Aplica negritas al texto en el campo de búsqueda */
+  font-weight: bold;
 }
 
 .d-flex button[type="submit"] {
-  background-color: #fff;
-  color: #003366;
-  border-color: #003366;
-  font-weight: bold; /* Aplica negritas al texto en el botón de búsqueda */
+  background-color: #003366;
+  color: #fff;
+  border-color: #fff;
+  font-weight: bold;
 }
 
 .d-flex button[type="submit"]:hover {
-  background-color: #1b9296;
-  border-color: #ffe600;
+  background-color: #0b6164;
+  border-color: #003366;
   color: #fff;
-  font-weight: bold; /* Aplica negritas al texto en el botón de búsqueda al pasar el ratón sobre él */
+  font-weight: bold;
+  transform: translateY(-2px);
 }
 
 /*Titulados*/
